@@ -54,6 +54,6 @@ jobs:
           #github_token: ${{ steps.get_installation_token.outputs.token }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           component_type: 'software'
-          config: '.trestlebot/config.yml'
+          #config: '.trestlebot/config.yml'
          # pull_request_title: "Adds ${{ github.event.inputs.component_name }} component to ${{ github.event.inputs.output }} component definition."
           filter_by_profile: ${{ github.event.inputs.filter_by_profile }}
