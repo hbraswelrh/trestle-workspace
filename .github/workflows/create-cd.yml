@@ -22,20 +22,22 @@ jobs:
   create-component:
     name: Create component definition
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
-      - name: Generate app token
-        #uses: tibdex/github-app-token@v2.1.0
-        id: get_installation_token
-        uses: tibdex/github-app-token@v2.1.0
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.PRIVATE_KEY }}
-          permissions: >-
-            {"contents": "write", "pull_requests": "write"}
+#      - name: Generate app token
+#        uses: tibdex/github-app-token@v2.1.0
+#        id: get_installation_token
+#        with:
+#          app_id: ${{ secrets.APP_ID }}
+#          private_key: ${{ secrets.PRIVATE_KEY }}
+#          permissions: >-
+#            {"contents": "write", "pull_requests": "write"}
       - name: Clone
         uses: actions/checkout@v4
-        with:
-          token: ${{ steps.get_installation_token.outputs.token }}
+#        with:
+#          token: ${{ steps.get_installation_token.outputs.token }}
       - name: Create new Component Definition
         id: create-cd
         uses: RedHatProductSecurity/trestle-bot/actions/create-cd@main
@@ -48,5 +50,7 @@ jobs:
           branch: compdef-create-${{ github.run_id }}
           target_branch: "main"
           commit_message: "adds ${{ github.event.inputs.component_name }} component to ${{ github.event.inputs.output }} component definition [skip ci]"
-          github_token: ${{ steps.get_installation_token.outputs.token }}
+          pull_request_title: "Adds ${{ github.event.inputs.component_name }} component to ${{ github.event.inputs.output }} component definition."
+          #github_token: ${{ steps.get_installation_token.outputs.token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           filter_by_profile: ${{ github.event.inputs.filter_by_profile }}
