@@ -50,7 +50,10 @@ jobs:
           branch: compdef-create-${{ github.run_id }}
           target_branch: "main"
           commit_message: "adds ${{ github.event.inputs.component_name }} component to ${{ github.event.inputs.output }} component definition [skip ci]"
-          pull_request_title: "Adds ${{ github.event.inputs.component_name }} component to ${{ github.event.inputs.output }} component definition."
+          file_patterns: "*.json, markdown/*, rules/*"
           #github_token: ${{ steps.get_installation_token.outputs.token }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          component_type: 'software'
+          config: '.trestlebot/config.yml'
+          pull_request_title: "Adds ${{ github.event.inputs.component_name }} component to ${{ github.event.inputs.output }} component definition."
           filter_by_profile: ${{ github.event.inputs.filter_by_profile }}
