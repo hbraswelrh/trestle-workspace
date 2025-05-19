@@ -14,11 +14,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: RedHatProductSecurity/trestle-bot/actions/create-cd@main
         with:
-          markdown_dir: "markdown/components"
+          markdown_dir: "markdown/component-definitions"
           profile_name: "my-profile"
           component_definition_name: "my-component-definition"
           component_title: "my-component"
           component_description: "My demo component"
-          branch: component-create-${{ github.run_id }}
+          branch: "component-create-${{ github.run_id }}"
           target_branch: "main"
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ".trestlebot/config.yml"
+          dry_run: 'true'
