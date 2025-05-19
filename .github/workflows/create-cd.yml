@@ -1,16 +1,20 @@
+
 name: Create a new Component Definition
 on:
   workflow_dispatch:
    inputs:
-      import_name:
+      profile_name:
         required: true
         description: Name of profile in trestle workspace to be imported into the component definition
-      output:
+      component_definition_name:
+        description: Name of component definition to create
         required: true
-        description: Name of the component definition to create
-      component_name:
+      component_title:
         required: true
         description: Name of the component in the generated component definition
+      component_type:
+        description: Type of component (e.g., service, policy, physical, validation, etc. )
+        required: false
       component_description:
         required: true
         description: Description of the component in the generated component definition
@@ -34,26 +38,26 @@ jobs:
 #          private_key: ${{ secrets.PRIVATE_KEY }}
 #          permissions: >-
 #            {"contents": "write", "pull_requests": "write"}
-      - name: Clone
+      - name: Clone Repository
         uses: actions/checkout@v4
 #        with:
 #          token: ${{ steps.get_installation_token.outputs.token }}
-      - name: Create new Component Definition
-        id: create-cd
+      - name: Create new Component Definition and open PR
+        id: generate-cd
         uses: RedHatProductSecurity/trestle-bot/actions/create-cd@main
         with:
           markdown_dir: "markdown/component-definitions"
-          profile_name: ${{ github.event.inputs.import_name }}
-          component_definition_name: ${{ github.event.inputs.output }}
-          component_title: ${{ github.event.inputs.component_name }}
+          profile_name: ${{ github.event.inputs.profile_name }}
+          component_definition_name: ${{ github.event.inputs.component_definition_name }}
+          component_title: ${{ github.event.inputs.component_title }}
           component_description: ${{ github.event.inputs.component_description }}
-          branch: compdef-create-${{ github.run_id }}
+          branch: "compdef-create-${{ github.run_id }}"
           target_branch: "main"
-          commit_message: "adds ${{ github.event.inputs.component_name }} component to ${{ github.event.inputs.output }} component definition [skip ci]"
+          commit_message: "adds ${{ github.event.inputs.component_title }} component to ${{ github.event.inputs.component_definition_name }} component definition [skip ci]"
           file_patterns: "*.json, markdown/*, rules/*"
           #github_token: ${{ steps.get_installation_token.outputs.token }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          component_type: 'software'
+          component_type: ${{ github.event.inputs.component_type}}
           #config: '.trestlebot/config.yml'
          # pull_request_title: "Adds ${{ github.event.inputs.component_name }} component to ${{ github.event.inputs.output }} component definition."
           filter_by_profile: ${{ github.event.inputs.filter_by_profile }}
