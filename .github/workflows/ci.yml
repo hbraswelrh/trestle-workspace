@@ -22,5 +22,4 @@ jobs:
           branch: "component-create-${{ github.run_id }}"
           target_branch: "main"
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          config: ".trestlebot/config.yml"
           dry_run: 'true'
