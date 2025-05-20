@@ -3,9 +3,9 @@
     "uuid": "425bd9d9-0d0e-4c8a-a9d7-57e998e1703c",
     "metadata": {
       "title": "rhel9-cis_rhel9-l2_server",
-      "last-modified": "2025-05-15T09:33:09.641352-04:00",
+      "last-modified": "2025-05-20T20:08:05.553821+00:00",
       "version": "REPLACE_ME",
-      "oscal-version": "1.1.2"
+      "oscal-version": "1.1.3"
     },
     "imports": [
       {
@@ -323,6 +323,9 @@
         "method": "merge"
       },
       "as-is": true
+    },
+    "modify": {
+      "alters": []
     }
   }
 }
