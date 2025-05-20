@@ -2,6 +2,12 @@ name: Autosync
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'profiles/**'
+      - 'markdown/profiles/**'
 
 jobs:
   autosync:
@@ -9,17 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pull-requests: write
-  steps:
-    - uses: actions/checkout@v3
-    - name: Run trestlebot
-      id: trestlebot
-      uses: RedHatProductSecurity/trestle-bot/actions/autosync@main
-      with:
-        markdown_dir: "markdown/profiles"
-        oscal_model: "profile"
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: "autosync-${{ github.run_id }}"
-        file_patterns: "*.json, markdown/*, rules/*"
-        dry_run: 'true'
-
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Run autosync
+        id: autosync
+        uses: RedHatProductSecurity/trestle-bot/actions/autosync@main
+        with:
+          markdown_dir: "markdown/profiles"
+          oscal_model: "profile"
+          branch: "main"
+          file_patterns: "*.json,markdown/*"

@@ -9,7 +9,7 @@
     },
     "imports": [
       {
-        "href": "trestle:///home/hbraswel/GIT/trestle-workspace/catalogs/anssi/catalog.json",
+        "href": "trestle://catalogs/anssi/catalog.json",
         "include-controls": [
           {
             "with-ids": [
