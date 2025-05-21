@@ -23,7 +23,7 @@ on:
         description: Filter the component definition control by a separate profile
 
 jobs:
-  create-component:
+  create-component-definition:
     name: Create component definition
     runs-on: ubuntu-latest
     permissions:
@@ -31,9 +31,9 @@ jobs:
       pull-requests: write
     steps:
       - name: Clone Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Create new Component Definition and open PR
-        id: trestlebot
+        id: generate-cd
         uses: complytime/trestle-bot/actions/create-cd@main
         with:
           markdown_dir: "markdown/component-definitions"
@@ -43,10 +43,9 @@ jobs:
           component_description: ${{ github.event.inputs.component_description }}
           branch: "compdef-create-${{ github.run_id }}"
           target_branch: "main"
-          commit_message: "adds ${{ github.event.inputs.component_title }} component to ${{ github.event.inputs.component_definition_name }} component definition [skip ci]"
-          file_patterns: "*.json, markdown/*, rules/*"
+          commit_message: "adds ${{ github.event.inputs.component_title }} component to ${{ github.event.inputs.component_definition_name }} component definition."
+          file_patterns: "*.json,markdown/*,rules/*"
           github_token: ${{ secrets.GITHUB_TOKEN }}
           component_type: ${{ github.event.inputs.component_type }}
-          pull_request_title: "Adds ${{ github.event.inputs.component_title }} component to ${{ github.event.inputs.component_definition_name }} component definition."
+          pull_request_title: "Adds ${{ github.event.inputs.component_title }} to ${{ github.event.inputs.component_definition_name }} component definition."
           filter_by_profile: ${{ github.event.inputs.filter_by_profile }}
-          dry_run: 'true'
