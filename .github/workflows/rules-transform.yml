@@ -1,2 +1,28 @@
+---
+name: Transform Rules
 on:
+  workflow_dispatch:
+    pull_request:
+      branches:
+        - main
+      paths:
+        - 'profiles/**'
+        - 'catalogs/**'
+        - 'component-definitions/**'
+        - 'markdown/**'
+        - 'rules/**'
+
 jobs:
+  rules-transform:
+    name: Transform Rules
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Run trestlebot
+        id: trestlebot
+        uses: RedHatProductSecurity/trestle-bot/actions/rules-transform@main
+        with:
+          markdown_dir: "markdown/component-definitions"
