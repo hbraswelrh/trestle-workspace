@@ -22,7 +22,7 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: Run autosync
         id: autosync
-        uses: complytime/trestle-bot/actions/autosync@main
+        uses: hbraswelrh/trestle-bot/actions/autosync@feat/learning-course
         with:
           markdown_dir: "markdown/profiles"
           oscal_model: "profile"
