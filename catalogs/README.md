@@ -1,37 +1,34 @@
-## trestle-workspace OSCAL Catalogs 🤖
+## `oscal-content-demo` OSCAL Catalogs 
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [OSCAL Catalogs](#oscalcatalogs)
 - [Features](#features)
+  - [Usage](#usage)
 - [Installation](#installation)
-  - [Prerequisites](#prerequisites)
 - [Usage](#usage)
   - [Basic Usage](#basic-usage)
   - [Advanced Usage](#advanced-advanced-usage)
-- [File Structure](#file-structure)
-- [Testing](#testing)
-  - [How to Configure](#how-to-contribute)
-- [Support](#support)
 
 ---
 
 ## Introduction
 
-## OSCAL Catalogs 
+> OSCAL Catalogs are part of the Control Layer 
+
+The OSCAL Catalog model is described by NIST [here](https://pages.nist.gov/OSCAL/learn/concepts/layer/control/catalog/).
+
+![img.png](../assets/img/catalogpic.png)
 
 ## Features
 
-## Installation
+The OSCAL Catalogs are created by `complyscribe` and leverage `ComplianceAsCode/content` for machine-readable formatting of security content. 
 
-### Prerequisites
+### Usage
 
-## Usage
+OSCAL Catalogs are used as a bank of content that can be used to further refine and tailor the scope for creation of OSCAL Profiles. 
 
-## File Structure
 
-## Testing
+## Installation _developers_
 
-### How to Configure
 
-## Support 
+

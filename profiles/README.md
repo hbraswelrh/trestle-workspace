@@ -1,37 +1,19 @@
-## trestle-workspace OSCAL Profiles 🤖
+## oscal-content-demo OSCAL Profiles
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [OSCAL Profiles](#oscalprofiles)
+- [OSCAL Profile](#oscal-profiles)
 - [Features](#features)
-- [Installation](#installation)
-  - [Prerequisites](#prerequisites)
 - [Usage](#usage)
-  - [Basic Usage](#basic-usage)
-  - [Advanced Usage](#advanced-advanced-usage)
-- [File Structure](#file-structure)
-- [Testing](#testing)
-  - [How to Configure](#how-to-contribute)
-- [Support](#support)
-
 ---
 
 ## Introduction
+
+> OSCAL Profiles are part of the Control Layer 
+
+The OSCAL Profile Model is explained by NIST [here](https://pages.nist.gov/OSCAL/learn/concepts/layer/control/profile/).
 
 ## OSCAL Profiles
 
 ## Features
 
-## Installation
-
-### Prerequisites
-
-## Usage
-
-## File Structure
-
-## Testing
-
-### How to Configure
-
-## Support 
