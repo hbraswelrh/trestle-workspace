@@ -6,8 +6,6 @@
   - [Usage](#usage)
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Basic Usage](#basic-usage)
-  - [Advanced Usage](#advanced-advanced-usage)
 
 ---
 

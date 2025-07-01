@@ -4,7 +4,6 @@
 - [Introduction](#introduction)
 - [OSCAL Profile](#oscal-profiles)
 - [Features](#features)
-- [Usage](#usage)
 ---
 
 ## Introduction

@@ -8,9 +8,10 @@
   - [Creating the PR](#creating-the-pr-tada)
   - [Interacting with the PR](#interacting-with-the-pull-request-)
 - [Usage](#usage)
-  - [Basic Usage](#using-the-trestle-workspace)
+  - [Basic Usage](#using-the-oscal-content-demo-workspace)
     - [Manually updating the Component Definitions](#manually-updating-an-oscal-component-definition)
     - [Leveraging GitHub Actions](#leveraging-github-actions-to-author-component-definitions-octocat)
+    - [Related Projects](#related-projects-)
       - [Steps](#world_map-steps)
   - [Resources](#resources) 
 
@@ -49,7 +50,7 @@
 
 4. **Submit Evidence of Completion:**  
    * Once your Pull Request is created, copy its unique URL from your browser's address bar.  
-   * Paste the URL into the designated field of the [self-assessment](assets/self_assessment/self_assessment.md). This PR link serves as your evidence of attempting the `trestle-workspace` course activities. 🎉
+   * Paste the URL into the designated field of the [self-assessment](assets/self_assessment/self_assessment.md). This PR link serves as your evidence of attempting the `oscal-content-demo` course activities. 🎉
 
 5. **Interact and Learn (Optional but Recommended):**  
    * Bookmark your PR page. :bookmark:
@@ -106,6 +107,16 @@ To submit your progress and changes made in the `oscal-content-demo`, include th
 
 > The GitHub Actions available will allow you to create OSCAL Component Definitions using the `workflow_dispatch` functionality.
 
+#### Related Projects 
+
+The `ComplianceAsCode/oscal-content` repository is an ongoing effort to synchronize the primary example of the `oscal-content-demo` workspace with the `ComplianceAsCode/content` data.
+
+The project leverages GitHub Actions to automate syncing the `ComplianceAsCode/content` with the `ComplianceAsCode/oscal-content`. 
+
+> GitHub Action for [`sync-oscal-cac`](https://github.com/ComplianceAsCode/oscal-content/blob/main/.github/workflows/sync-oscal-cac.yml)
+> GitHub Action for [`sync-controls`](https://github.com/ComplianceAsCode/oscal-content/blob/main/.github/workflows/sync-controls.yml) to create OSCAL Catalogs and Profiles using `complyscribe` and syncing ComplianceAsCode/content updated controls to the OSCAL Control Models.
+> GitHub Action for [`sync-comp`](https://github.com/ComplianceAsCode/oscal-content/blob/main/.github/workflows/sync-comp.yml) to create OSCAL Component Definitions from `complyscribe` using the `ComplianceAsCode/content` data.
+
 ##### :world_map: Steps:
 
 1. Navigate to the Actions tab in your oscal-content-demo.
@@ -118,7 +129,7 @@ To submit your progress and changes made in the `oscal-content-demo`, include th
    - Description of the component in the generate component definition.
    - Filter the component definition control by a separate profile.
      
-   <img alt="img.png" height="400" src="https://github.com/hbraswelrh/trestle-workspace/blob/7492e400d5709d29c030fe39badff15bcc0a8e81/assets/img/workflow_entry.png" width="200"/>
+   <img alt="img.png" height="400" src="https://github.com/hbraswelrh/oscal-content-demo/blob/7492e400d5709d29c030fe39badff15bcc0a8e81/assets/img/workflow_entry.png" width="200"/>
 
 **Example inputs for the [Create a Component Definition](https://github.com/hbraswelrh/oscal-content-demo/actions/workflows/create-cd.yml) workflow in the oscal-content-demo**
 
