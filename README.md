@@ -128,8 +128,8 @@ The project leverages GitHub Actions to automate syncing the `ComplianceAsCode/c
    - Type of component (e.g., service, policy, physical, validation, etc. ).
    - Description of the component in the generate component definition.
    - Filter the component definition control by a separate profile.
-     
-   <img alt="img.png" height="400" src="https://github.com/hbraswelrh/oscal-content-demo/blob/7492e400d5709d29c030fe39badff15bcc0a8e81/assets/img/workflow_entry.png" width="200"/>
+
+<img alt="img.png" height="400" src="https://github.com/hbraswelrh/oscal-content-demo/blob/7492e400d5709d29c030fe39badff15bcc0a8e81/assets/img/workflow_entry.png" width="200"/>
 
 **Example inputs for the [Create a Component Definition](https://github.com/hbraswelrh/oscal-content-demo/actions/workflows/create-cd.yml) workflow in the oscal-content-demo**
 
